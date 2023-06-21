@@ -5,7 +5,9 @@ const cors = require("cors");
 const mysql = require("mysql");
 const publicacionController = require("./app/controllers/publicacionController.js");
 const path = require("path");
+
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "app", "views"));
 
 app.use(cors());
 app.use(express.json());
@@ -25,10 +27,8 @@ db.connect((err) => {
   console.log("Conexión a la base de datos establecida");
 });
 
-
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/publicacion", publicacionController);
-
 
 const PORT = process.env.PORT || 5000;
 

@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require('../../config/db.js');
+
 function obtenerPublicaciones() {
   return [
     { id: 1, titulo: "Publicación 1" },
@@ -25,9 +26,7 @@ router.post("/create", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  
   const publicaciones = obtenerPublicaciones(); 
-
   res.render("publicacion", { publicaciones });
 });
   
