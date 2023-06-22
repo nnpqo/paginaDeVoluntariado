@@ -1,33 +1,23 @@
 
 const express = require("express");
 const router = express.Router();
-const db = require('../../config/db.js');
+const publicacionModel = require("../models/publicacionModel.js");
 
-function obtenerPublicaciones() {
-  return [
-    { id: 1, titulo: "Publicación 1" },
-    { id: 2, titulo: "Publicación 2" },
-    { id: 3, titulo: "Publicación 3" }
-  ];
-}
-
-router.post("/create", (req, res) => {
+router.post("/create", async (req, res) => {
   const { nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios } = req.body;
 
-  const query = `INSERT INTO publicacion(nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios) VALUES (?,?,?,?)`;
-  db.query(query, [nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios], (err, result) => {
-    if (err) {
-      console.error("Error al crear la publicación: ", err);
-      res.status(500).send("Error al crear la publicación");
-    } else {
-      res.send("Publicación registrada con éxito");
-    }
-  });
+  try {
+    const result = await publicacionModel.crearPublicacion(nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios);
+    res.send("Publicación registrada con éxito");
+  } catch (err) {
+    console.error("Error al crear la publicación: ", err);
+    console.log(err);
+    res.status(500).send("Error al crear la publicación");
+  }
 });
 
 router.get("/", (req, res) => {
-  const publicaciones = obtenerPublicaciones(); 
-  res.render("publicacion", { publicaciones });
+  res.render("publicacion");
 });
-  
+
 module.exports = router;

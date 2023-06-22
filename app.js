@@ -28,6 +28,7 @@ db.connect((err) => {
 });
 
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/publicacion", publicacionController);
 
 const PORT = process.env.PORT || 5000;

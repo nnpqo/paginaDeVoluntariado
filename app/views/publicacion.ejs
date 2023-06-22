@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="/styles.css">
+  <script src="/publicacion.js"></script>
 </head>
 <body>
   <div class="App">
@@ -16,14 +17,14 @@
         <label class="argumento">Cantidad de voluntarios:</label>
       </div>
       <div class="inputs">
-        <input />
-        <input />
-        <input />
-        <input />
-      </div>
+        <input id="nombrePublicacionInput" class="nombrePublicacion" />
+        <input id="descripcionInput" class="descripcion" />
+        <input id="tipoPublicacionInput" class="tipoPublicacion" />
+        <input id="cantidadVoluntariosInput" class="cantidadVoluntarios" />
+      </div>      
     </div>
     <div class="botones3">
-      <button class="botonPublicar">Publicar</button>
+      <button class="botonPublicar" onclick="publicar()">Publicar</button>
     </div>
   </div>
 </body>
