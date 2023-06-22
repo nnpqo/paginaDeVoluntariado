@@ -28,6 +28,7 @@ db.connect((err) => {
 });
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
 
 app.use("/publicacion", publicacionController);
 

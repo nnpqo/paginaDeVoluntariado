@@ -1,0 +1,64 @@
+.cabecera{
+    background-color:#070C7B;
+    display: flex;
+    width: 100%;
+    height: 20vh;
+}
+.imagenLogo {
+    width: 16vh;
+    height: 14vh; 
+    margin-top: 10%;
+}
+.titulo{
+    display: flex;
+    font-weight: bolder;
+    font-size: 3vh;
+    height: 50%;
+    width: 100%;
+    align-items: end;
+    color: white;
+}
+.titulo1{
+    display: flex;
+    font-size: 3vh;
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    color: white;
+}
+.contenido{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.botones{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content:center;
+    align-items: end;
+    flex-direction: row;
+    gap: 4%;
+}
+.botonCabecera{
+    display: flex;
+    width: 20%;
+    height: 50%;
+    font-size: 3vh;
+    font-weight: bolder;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.botonCabecera1{
+    display: flex;
+    width: 30%;
+    height: 50%;
+    font-size: 3vh;
+    font-weight: bolder;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor:pointer;
+}
