@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <script src="/voluntario.js"></script>
+</head>
+<body>
+  <%- include('cabecera.ejs') %>
+  <div class="App">
+    <div class="titulo2">
+      <label> AÑADIR VOLUNTARIO</label>
+    </div>
+    <div class="contenidoPrincipal">
+      <div class="datos">
+        <label class="argumento">Codigo de Voluntario:</label>
+        <label class="argumento">Tipo de Voluntario:</label>
+        <label class="argumento">Nombre de Usuario:</label>
+        <label class="argumento">Contraseña:</label>
+      </div>
+      <div class="inputs">
+        <input id="codVoluntarioInput" class="codVoluntario" />
+        <input id="tipoUsuarioInput" class="tipoUsuario" />
+        <input id="nombreUInput" class="nombreU" />
+        <input id="contraseniaUInput" class="contraseniaU" />
+      </div>      
+    </div>
+    <div class="botones3">
+      <button class="botonGuardar" onclick="guardar()">GUARDAR</button>
+    </div>
+    <div class="botones4">
+      <button class="botonCancelar" onclick="cancelar()">CANCELAR</button>
+    </div>
+  </div>
+</body>
+</html>

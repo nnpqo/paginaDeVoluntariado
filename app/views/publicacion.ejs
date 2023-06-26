@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <script src="/publicacion.js"></script>
+</head>
+<body>
+  <%- include('cabecera.ejs') %>
+  <div class="App">
+    <div class="titulo2">
+      <label>NUEVA PUBLICACION</label>
+    </div>
+    <div class="contenidoPrincipal">
+      <div class="datos">
+        <label class="argumento">Nombre:</label>
+        <label class="argumento">Descripcion:</label>
+        <label class="argumento">Tipo de publicacion:</label>
+        <label class="argumento">Cantidad de voluntarios:</label>
+      </div>
+      <div class="inputs">
+        <input id="nombrePublicacionInput" class="nombrePublicacion" />
+        <input id="descripcionInput" class="descripcion" />
+        <input id="tipoPublicacionInput" class="tipoPublicacion" />
+        <input id="cantidadVoluntariosInput" class="cantidadVoluntarios" />
+      </div>      
+    </div>
+    <div class="botones3">
+      <button class="botonPublicar" onclick="publicar()">Publicar</button>
+    </div>
+  </div>
+</body>
+</html>

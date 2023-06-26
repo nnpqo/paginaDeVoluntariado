@@ -1,0 +1,29 @@
+{
+  "name": "proyecto-mvc",
+  "version": "1.0.0",
+  "description": "Proyecto MVC",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "mvc",
+    "node",
+    "express",
+    "mysql"
+  ],
+  "author": "YaCa",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
