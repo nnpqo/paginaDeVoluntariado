@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mysql = require("mysql");
+
+
 const publicacionController = require("./app/controllers/publicacionController.js");
 const voluntarioController = require("./app/controllers/voluntarioController.js");
 const path = require("path");
@@ -27,6 +29,29 @@ db.connect((err) => {
   }
   console.log("Conexión a la base de datos establecida");
 });
+   
+
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(function (req, res, next) {
+    console.log(req.body);
+    next();
+});
+
+
+app.use(function (err, req, res, next) {
+    if (err instanceof validate.ValidationError) {
+        return res.json({status: err.status, errorMessage: err});
+    }
+});
+
+/*
+app.listen(config.app_port);
+console.log('Express server listening on port ' + config.app_port);
+*/
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
@@ -34,7 +59,6 @@ app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
 app.use("/publicacion", publicacionController);
 app.use("/usuario", voluntarioController);
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
