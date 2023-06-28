@@ -1,4 +1,4 @@
-const db = require("../../config/db.js");
+const db = require("../config/db.js");
 
 const crearUsuario= (codVoluntario,	tipoUsuario, nombreU, contraseniaU ) => {
   return new Promise((resolve, reject) => {

@@ -1,31 +1,33 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-var SALT_WORK_FACTOR = 10;
-var UserSchema = new mongoose.Schema({
-    firstName: String,  
-    lastName: String, 
-    username: {type: String, required: true},  
-    password: {type: String, required: true}, 
-});
+const mysql = require("../config/db");
 
-UserSchema.pre('save', function(next) {
-    var user = this;
-
-    if (!user.isModified('password')) return next();
-
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-        if (err) return next(err);
-
-        bcrypt.hash(user.password, salt, null, function(err, hash) {
-            if (err) return next(err);
-            user.password = hash;
-            next();
-        });
-    });
-});
-
-UserSchema.methods.comparePassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
+let User = function (user) {
+  this.user_id = user.user_id;
+  this.user_email = user.user_email;
+  this.user_name = user.user_name;
+  this.user_password = user.user_password;
 };
 
-module.exports = mongoose.model('User', UserSchema);
+User.findAll = function (result) {
+  mysql.query("Select * from user", function (err, res) {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+    } else {
+      console.log("employees : ", res);
+      result(null, res);
+    }
+  });
+};
+
+User.findById = function (id, result) {
+  mysql.query("Select * from user where user_id = ? ", id, function (err, res) {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+    } else {
+      result(null, res);
+    }
+  });
+};
+
+module.exports = User;
