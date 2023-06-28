@@ -22,20 +22,20 @@ const crearPublicacion = (nombrePublicacion, descripcion, tipoPublicacion, canti
 };
 
 
-const obtenerPublicacionesPorTipo = (tipoPublicacion) => {
+const obtenerPublicacionesPorTipo = (tipo) => {
   return new Promise((resolve, reject) => {
     const selectDbQuery = `USE database_app;`;
-    const selectQuery = `SELECT * FROM publicacion WHERE tipoPublicacion = ?;`;
+    const selectQuery = `SELECT * FROM publicacion WHERE tipoPublicacion = ?`;
 
     db.query(selectDbQuery, (err) => {
       if (err) {
         reject(err);
       } else {
-        db.query(selectQuery, [tipoPublicacion], (err, result) => {
+        db.query(selectQuery, [tipo], (err, results) => {
           if (err) {
             reject(err);
           } else {
-            resolve(result);
+            resolve(results);
           }
         });
       }
@@ -45,7 +45,8 @@ const obtenerPublicacionesPorTipo = (tipoPublicacion) => {
 
 module.exports = {
   crearPublicacion,
-  obtenerPublicacionesPorTipo
+  obtenerPublicacionesPorTipo,
 };
+
 
 

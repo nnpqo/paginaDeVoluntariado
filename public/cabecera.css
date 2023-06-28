@@ -5,8 +5,8 @@
     height: 20vh;
 }
 .imagenLogo {
-    width: 16vh;
-    height: 14vh; 
+    width: 14vh;
+    height: 12vh; 
     margin-top: 10%;
 }
 .titulo{
@@ -23,8 +23,11 @@
     font-size: 3vh;
     height: 50%;
     width: 100%;
+    margin-left: 1%;
     align-items: center;
     color: white;
+    font-family: Tahoma;
+    font-weight: bolder;
 }
 .contenido{
     display: flex;

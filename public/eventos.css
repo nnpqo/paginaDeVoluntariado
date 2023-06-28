@@ -31,3 +31,9 @@ html, body {
 .datos{
 
 }
+
+.eventosCont{
+    display: flex;
+    height: 60%;
+    background-color: aqua;
+}
