@@ -25,6 +25,17 @@ router.get("/eventos", async (req, res) => {
   }
 });
 
+router.get("/comunicados", async (req, res) => {
+  try {
+    const comunicados = await publicacionModel.obtenerPublicacionesPorTipo("comunicado");
+    res.render("comunicados", { comunicados });
+  } catch (err) {
+    console.error("Error al obtener los comunicados:", err);
+    res.status(500).send("Error al obtener los comunicados");
+  }
+});
+
+
 router.get("/", (req, res) => {
   res.render("publicacion");
 });

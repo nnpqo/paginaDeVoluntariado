@@ -43,9 +43,25 @@ const obtenerPublicacionesPorTipo = (tipo) => {
   });
 };
 
+const obtenerPublicacionesPorTipoComunicado = (tipoPublicacion) => {
+  return new Promise((resolve, reject) => {
+    const selectQuery = `SELECT * FROM publicacion WHERE tipoPublicacion = ?`;
+
+    db.query(selectQuery, [tipoPublicacion], (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+};
+
+
 module.exports = {
   crearPublicacion,
   obtenerPublicacionesPorTipo,
+  obtenerPublicacionesPorTipoComunicado
 };
 
 
