@@ -21,7 +21,31 @@ const crearPublicacion = (nombrePublicacion, descripcion, tipoPublicacion, canti
   });
 };
 
-module.exports = {
-  crearPublicacion
+
+const obtenerPublicacionesPorTipo = (tipoPublicacion) => {
+  return new Promise((resolve, reject) => {
+    const selectDbQuery = `USE database_app;`;
+    const selectQuery = `SELECT * FROM publicacion WHERE tipoPublicacion = ?;`;
+
+    db.query(selectDbQuery, (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        db.query(selectQuery, [tipoPublicacion], (err, result) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        });
+      }
+    });
+  });
 };
+
+module.exports = {
+  crearPublicacion,
+  obtenerPublicacionesPorTipo
+};
+
 
