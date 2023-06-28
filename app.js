@@ -10,7 +10,21 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "app", "views"));
 
 app.use(cors());
+
+var corsOptions = {
+  origin: "http://localhost:5000"
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
+});
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -29,6 +43,7 @@ db.connect((err) => {
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
+
 
 app.use("/publicacion", publicacionController);
 
