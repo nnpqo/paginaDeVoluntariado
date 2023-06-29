@@ -37,4 +37,8 @@ router.get("/comunicados", (req, res) => {
   res.render("comunicados");
 });
 
+router.get("/home", (req, res) => {
+  res.render("home");
+});
+
 module.exports = router;

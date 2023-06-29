@@ -53,6 +53,8 @@ app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
 
 app.use("/", publicacionController);
 
+app.use("/home", homeController);
+
 app.use("/login", loginController);
 
 app.use("/login/home", homeController);

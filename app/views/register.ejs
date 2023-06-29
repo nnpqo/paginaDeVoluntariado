@@ -5,22 +5,38 @@
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
 		<title>Registro</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <link href="/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+        <script src="/voluntario.js"></script>
 	</head>
 	<body>
-		  <h1>Formulario</h1>
+        <%- include('cabecera.ejs') %>
 
-    <form action="procesar_formulario.php" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
-
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" required><br><br>
-
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required><br><br>
-
-        <input type="submit" value="Enviar">
-    </form>
+        <div class="App">
+          <div class="titulo2">
+            <label>REGISTRAR</label>
+          </div>
+	
+        
+        <div class="contenidoPrincipal">
+          <div class="datos">
+            <label class="argumento">Codigo de Voluntario:</label>
+            <label class="argumento">Nombre de Usuario:</label>
+            <label class="argumento">Contraseña:</label>
+          </div>
+          <div class="inputs">
+            <input id="codVoluntarioInput" name="codigo"class="codVoluntario" />
+            <input id="nombreUInput" name="nombre"class="nombreU" />
+            <input id="contraseniaUInput"name="contrasenia" class="contraseniaU" />
+          </div>      
+        </div>
+        <div>
+        <div class="botones3">
+          <button class="botonGuardar" onclick="guardar()">GUARDAR</button>
+        </div>
+        <div class="botones4">
+          <button class="botonCancelar" onclick="cancelar()">CANCELAR</button>
+        </div>
+    </div>
+      </div>
 	</body>
 </html>
