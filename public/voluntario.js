@@ -1,7 +1,7 @@
 function guardar() {
   const codigoVoluntario = document.getElementById("codigo").value;
   const nombre = document.getElementById("nombre").value;
-  const contrasenia= document.getElementById("password").value;
+  const contrasenia= document.getElementById("contrasenia").value;
   
   const formData = {
     codigoVoluntario,
@@ -9,22 +9,24 @@ function guardar() {
     contrasenia
   };
 
-  fetch(`/getUsuarioPorCodigo/${codigoVoluntario}`, {
+  fetch("/register/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    //body: JSON.stringify(formData)
+    body: JSON.stringify(formData)
   })
     .then(response => response.text())
     .then(message => {
-     // alert(message);
-      window.location.href = "/register/home";
-      // Realizar acciones adicionales después de iniciar sesión exitosamente
+      alert(message);
+      window.location.href = "/register";
     })
     .catch(error => {
-      console.error("Error al regustrar sesión:", error);
-      alert("Error al registrar sesión");
-    });}
+      console.error("Error al registrar:", error);
+      alert("Error al registrar");
+    });
+}
+
+    function cancelar(){}
 
   

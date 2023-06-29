@@ -1,7 +1,7 @@
 
 const express = require("express");
 const router = express.Router();
-const publicacionModel = require("../models/voluntarioModel.js");
+const voluntarioModel = require("../models/voluntarioModel.js");
 
 router.post("/create", async (req, res) => {
   const { codVoluntario,tipoUsuario, nombreU, contraseniaU } = req.body;
