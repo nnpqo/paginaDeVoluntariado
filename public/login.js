@@ -6,24 +6,20 @@ function login() {
       codigoVoluntario
     };
   
-    fetch("/getUsuarioPorCodigo/${codigo}", {
+    fetch(`/getUsuarioPorCodigo/${codigoVoluntario}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(formData)
+      //body: JSON.stringify(formData)
     })
       .then(response => response.text())
       .then(message => {
-        alert(message);
+       // alert(message);
         window.location.href = "/login/home";
         // Realizar acciones adicionales después de iniciar sesión exitosamente
       })
       .catch(error => {
         console.error("Error al iniciar sesión:", error);
         alert("Error al iniciar sesión");
-      });
-  }
-  function hola(){
-console.log("hola");
-  }
+      });}
