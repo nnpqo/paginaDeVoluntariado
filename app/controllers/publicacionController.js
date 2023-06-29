@@ -25,7 +25,7 @@ router.get("/eventos", async (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
+router.get("/publicacion", (req, res) => {
   res.render("publicacion");
 });
 

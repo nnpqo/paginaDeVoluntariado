@@ -28,6 +28,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.redirect("/login");
 });
+app.get("/voluntarios", (req, res) => {
+  res.render("verVoluntario");
+});
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -48,7 +51,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
 
 
-app.use("/publicacion", publicacionController);
+app.use("/", publicacionController);
 
 app.use("/login", loginController);
 
