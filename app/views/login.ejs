@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-        <link href="/style.css" rel="stylesheet" type="text/css">
-		<meta name="viewport" content="width=device-width,minimum-scale=1">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-       
-        <script src="/login.js"></script>  
+	<html lang="es">
+    
+    <head>
         
-	</head>
-	<body>
-        <div class="App">
-            <div class="titulo2">
-              <label>LOGIN</label>
-            </div>
-            <div class="contenidoPrincipal">
-                <div class="datos">
-		<div class="login">
-	
-				<label for="codigo de voluntario">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="codigo" placeholder="codigo" id="codigo" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				
-				<div class="botones3">
-                    <button class="botonLogin" onclick="login()">Entrar</button>
-                  </div>
-        </div>
+        <meta charset="utf-8">
+        <title> INICIA SESION </title>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="/login.css">
+         
+        <script src="/login.js"></script>  
+        <style type="text/css"> </style>  
+    </head>
+    <body> 
+      <div id="contenedor">
+            <div id="central">
+                <div id="login">
+                    <div class="titulo">
+                        Bienvenido
+                    </div>
+                    <form id="loginform">
+                        <input id="codigo" type="text" name="codigo" placeholder="Codigo de Voluntario" required>
+                        
+                        <input id="password" type="password" placeholder="Contraseña" name="password" required>
+                        
+						<div class="botones3">
+							<button type="submit"  onclick="login()">Entrar</button>
+						  </div>
                 </div>
-		</div>
-        </div>
-	</body>
+            </div>
+        </div>       
+    </body>
 </html>

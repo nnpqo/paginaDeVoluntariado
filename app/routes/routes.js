@@ -1,31 +1,35 @@
-const router = require("express").Router();
+const { Router } = require("express");
+const router = Router();
 
-router.get("/", async (req, res) => {
-    res.render("logout", {
-        loggedIn: false,
-        loggedInUserData: req.session.loggedInUserData,
-    });
+const publicacionCont = require("../controllers/publicacionController");
+const userCont = require("../controllers/userController");
+
+//routes
+router.get('/', (req, res) => {
+  res.render(index)
+});
+router.get("/register", (req, res) => {
+  res.render("register");
 });
 
-router.get("/", async (req, res) => {
-    res.render("signup", {
-        loggedIn: req.session.loggedIn,
-        loggedInUserData: req.session.loggedInUserData,
-    });
+router.post("/register", userCont.createUser);
+
+router.post("/login", userCont.getUser);
+
+router.get("/index", (req, res) => {
+  res.render("index", { title: "mi pagina con ejs" });
+});
+router.get("/publicacion", (req, res) => {
+  res.render("publicacion", { title: "Crear publicacion" });
 });
 
-router.get("/", async (req, res) => {
-    res.render("login", {
-        loggedIn: req.session.loggedIn,
-        loggedInUserData: req.session.loggedInUserData,
-    });
-});
-app.get("/users", (req, res) => {
-    res.send("devolver la lista de usuarios");
+router.get("/perfil", (req, res) => {
+  res.render("perfil");
 });
 
-app.post("/users", (req, res) => {
-    res.send("respuesta distinta por vía post");
-});
+router.post("/create_publicacion", publicacionCont.createPublicacion);
 
+
+
+router.get("/usuario", (req, res) => {});
 module.exports = router;
