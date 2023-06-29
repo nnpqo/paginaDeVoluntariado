@@ -4,6 +4,9 @@ const app = express();
 const cors = require("cors");
 const mysql = require("mysql");
 const publicacionController = require("./app/controllers/publicacionController.js");
+const loginController = require("./app/controllers/loginController.js");
+const homeController = require("./app/controllers/homeController.js");
+const registerController = require("./app/controllers/registerController.js");
 const path = require("path");
 
 app.set("view engine", "ejs");
@@ -46,6 +49,12 @@ app.use("/imagenes", express.static(path.join(__dirname, "imagenes")));
 
 
 app.use("/publicacion", publicacionController);
+
+app.use("/login", loginController);
+
+app.use("/home", homeController);
+
+app.use("/register", registerController);
 
 const PORT = process.env.PORT || 5000;
 

@@ -14,9 +14,8 @@ DROP table if exists usuarios;
 CREATE TABLE usuarios (
   id_usuario INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(100) NOT NULL,
-  correo VARCHAR(100) NOT NULL,
+  codigo_voluntario VARCHAR(100) NOT NULL,
   contrasenia VARCHAR(100) NOT NULL,
-  tipo_usuario enum('administrador', 'voluntario') DEFAULT 'administrador',
   fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   ultima_actualizacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id_usuario)
@@ -29,11 +28,7 @@ CREATE TABLE publicaciones (
   id_publicacion INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nombre_publicacion VARCHAR(100) NOT NULL,
   descripcion TEXT,
-  tipo_publicacion enum('evento', 'comunicado'),
-  fecha_inicio DATE NOT NULL,
-  hora_actividad TIME NOT NULL,
-  fecha_cierre DATE NOT NULL,
-  ubicacion_actividad VARCHAR(100) NOT NULL,
+  tipo_publicacion enum('evento', 'comunicado') DEFAULT 'evento',
   cantidad_voluntarios INT NOT NULL,
   fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   ultima_actualizacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

@@ -6,15 +6,8 @@ const publicacionModel = require("../models/publicacionModel.js");
 router.post("/create", async (req, res) => {
   const { nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios } = req.body;
 
-  const date = {
-    fechaInicio:"2023-06-02",
-    horaActividad:"00:45",
-    fechaFin:"2023-06-02",
-    ubicacionA: "Zona Quillacollo"
-  }
-
   try {
-    const result = await publicacionModel.crearPublicacion(nombrePublicacion, descripcion, tipoPublicacion, date.fechaInicio, date.horaActividad, date.fechaFin, date.ubicacionA, cantidadVoluntarios);
+    const result = await publicacionModel.crearPublicacion(nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios);
     res.send("Publicación registrada con éxito");
   } catch (err) {
     console.error("Error al crear la publicación: ", err);
