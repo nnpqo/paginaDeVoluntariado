@@ -49,6 +49,21 @@ html, body {
     outline: none;
     border-radius: 7px;
   }
+
+  .tipoPublicacion{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 9%;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    font-size: 100%;
+    font-weight: bolder;
+  }
+  
   .argumento{
     font-size: 3.5vh;
   }
