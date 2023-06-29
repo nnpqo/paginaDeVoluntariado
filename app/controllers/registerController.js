@@ -1,13 +1,14 @@
 
 const express = require("express");
 const router = express.Router();
-const loginModel = require("../models/registerModel.js");
+const registerModel = require("../models/registerModel.js");
+
 
 router.post("/create", async (req, res) => {
     const { codigoVoluntario, nombre, contrasenia } = req.body;
   
     try {
-      const result = await registerModel.crearUsuario(codigoVoluntario, nombre, contrasenia);
+      const result = await registerModel.crearVoluntario(codigoVoluntario, nombre, contrasenia);
       res.send("Usuario creado con éxito");
     } catch (err) {
       console.error("Error al crear el usuario: ", err);
