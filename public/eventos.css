@@ -1,9 +1,8 @@
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
-  }
-  .contenidoPrincipal{
+}
+.contenidoPrincipal{
     display: flex;
 }
 .titulo2{
@@ -28,6 +27,8 @@ html, body {
     padding: 0;
 }
 
-.datos{
-
+.eventosContainer{
+    background-color: aqua;
+    display: flex;
+    
 }

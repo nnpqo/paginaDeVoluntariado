@@ -24,7 +24,7 @@ const crearPublicacion = (nombre, descripcion, tipoPublicacion, cantidadVoluntar
 const obtenerPublicacionesPorTipo = (tipoPublicacion) => {
   return new Promise((resolve, reject) => {
     const selectDbQuery = `USE database_app;`;
-    const selectQuery = `SELECT * FROM publicaciones WHERE tipoPublicacion = ?;`;
+    const selectQuery = `SELECT * FROM publicaciones WHERE tipo_publicacion = ?;`;
 
     db.query(selectDbQuery, (err) => {
       if (err) {
