@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.redirect("/login");
 });
 
 const db = mysql.createConnection({
@@ -52,7 +52,7 @@ app.use("/publicacion", publicacionController);
 
 app.use("/login", loginController);
 
-app.use("/home", homeController);
+app.use("/login/home", homeController);
 
 app.use("/register", registerController);
 
