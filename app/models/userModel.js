@@ -26,7 +26,7 @@ const crearVoluntario = (codigoVoluntario, nombre, contrasenia) => {
   });
 };
 
-const obtenerVoluntarioPorCodigo = (codigoVoluntario) => {
+const obtenerVoluntarioPorCodigo = (codigo_voluntario) => {
   return new Promise((resolve, reject) => {
     const selectDbQuery = `USE database_app;`;
     const selectQuery = `SELECT * FROM usuarios WHERE codigo_voluntario = ?`;
@@ -35,7 +35,7 @@ const obtenerVoluntarioPorCodigo = (codigoVoluntario) => {
       if (err) {
         reject(err);
       } else {
-        db.query(selectQuery, [codigoVoluntario], (err, result) => {
+        db.query(selectQuery, [codigo_voluntario], (err, result) => {
           if (err) {
             reject(err);
           } else {
@@ -101,7 +101,7 @@ const actualizarVoluntarioPorCodigo = (
   });
 };
 
-const eliminarVoluntarioPorCodigo = (codigoVoluntario) => {
+const eliminarVoluntarioPorCodigo = (codigo_voluntario) => {
   return new Promise((resolve, reject) => {
     const selectDbQuery = `USE database_app;`;
     const deleteQuery = `DELETE FROM usuarios WHERE codigo_voluntario = ?`;
@@ -110,7 +110,7 @@ const eliminarVoluntarioPorCodigo = (codigoVoluntario) => {
       if (err) {
         reject(err);
       } else {
-        db.query(deleteQuery, [codigoVoluntario], (err, result) => {
+        db.query(deleteQuery, [codigo_voluntario], (err, result) => {
           if (err) {
             reject(err);
           } else {
@@ -122,10 +122,33 @@ const eliminarVoluntarioPorCodigo = (codigoVoluntario) => {
   });
 };
 
+const getAllUsers = () => {
+  return new Promise((resolve, reject) => {
+    
+  const selectDbQuery = `USE database_app;`;
+  const query = `SELECT * FROM usuarios`; // Query para recuperar todos los usuarios
+
+    db.query(selectDbQuery , (error, results) => {
+      if (error) {
+        reject(error);
+      } else {
+        db.query(query , (error, results) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(results);
+          }
+        })
+      }
+    });
+  });
+};
+
 module.exports = {
   crearVoluntario,
   getUsuarioLogin,
   obtenerVoluntarioPorCodigo,
   actualizarVoluntarioPorCodigo,
   eliminarVoluntarioPorCodigo,
+  getAllUsers
 };
