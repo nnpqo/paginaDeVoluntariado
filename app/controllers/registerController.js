@@ -16,4 +16,8 @@ router.post("/create", async (req, res) => {
     }
 });
 
+router.get("/", (req, res) => {
+  res.render("register");
+});
+
 module.exports = router;
