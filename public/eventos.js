@@ -1,5 +1,5 @@
 function recuperarPublicaciones() {
-  fetch("/eventos/getAllPublicaciones", {
+  fetch("/getAllPublicaciones", {
     method: "GET",
     headers: {
       "Content-Type": "application/json"

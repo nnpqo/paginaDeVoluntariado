@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color:#E5E7EB;
 }
 .contenidoPrincipal{
     display: flex;
@@ -30,6 +31,7 @@ html, body {
 .contenidoPrincipalE{
     background-color: #E5E7EB;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 70vh;
 }

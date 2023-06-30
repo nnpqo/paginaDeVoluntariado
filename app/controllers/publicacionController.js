@@ -24,7 +24,7 @@ router.post("/create", async (req, res) => {
     });
 });
 
-router.get("/eventos", async (req, res) => {
+router.get("/getAllPublicaciones", async (req, res) => {
   try {
     const publicaciones = await publicacionModel.getAllPublicaciones();
     res.send(publicaciones);
@@ -34,6 +34,10 @@ router.get("/eventos", async (req, res) => {
     res.status(500).send("Error al recuperar las publicaciones");
   }
 });
+
+router.get('/eventos', (req, res) => {
+  res.render('eventos');
+})
 
 router.get("/", (req, res) => {
   res.render("eliminarPublicacionPorTipo");
