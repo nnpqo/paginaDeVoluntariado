@@ -64,6 +64,7 @@ function recuperarUsuarios2() {
       // Agregar filas de usuarios a la tabla
       users.forEach(user => {
         const row = userTable.insertRow();
+        row.insertCell().textContent = user.id;
         row.insertCell().textContent = user.codigo_voluntario;
         row.insertCell().textContent = user.nombre;
         row.insertCell().textContent = user.contrasenia;
