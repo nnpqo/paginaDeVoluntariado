@@ -26,30 +26,40 @@ router.post("/create", async (req, res) => {
 
 router.get("/eventos", async (req, res) => {
   try {
-    const eventos = await publicacionModel.obtenerPublicacionesPorTipo(
-      "evento"
-    );
-    res.render("eventos", { eventos });
+    const publicaciones = await publicacionModel.getAllPublicaciones();
+    res.send(publicaciones);
+  
   } catch (err) {
-    console.error("Error al obtener las publicaciones de tipo 'evento':", err);
-    res.status(500).send("Error al obtener las publicaciones de tipo 'evento'");
+    console.error("Error al recuperar las publicaciones: ", err);
+    res.status(500).send("Error al recuperar las publicaciones");
+  }
+});
+
+router.get("/", (req, res) => {
+  res.render("eliminarPublicacionPorTipo");
+});
+
+router.delete("/eliminarPublicacionPorTipo/:tipoPublicacion", async (req, res) => {
+  const codigo = req.params.codigo;
+  const tipoPublicacion = req.params.tipoPublicacion; // Agrega esta línea para obtener el valor de tipoPublicacion
+
+  try {
+    const publicacion = await publicacionModel.obtenerPublicacionPorTipo(tipoPublicacion);
+    console.log(tipoPublicacion);
+    if (publicacion) {
+      await publicacionModel.eliminarPublicacionPorCodigo(codigo);
+      res.send("publicacion eliminada correctamente");
+    } else {
+      res.send("La publicacion no existe");
+    }
+  } catch (err) {
+    console.error("Error al eliminar la publicacion: ", err);
+    res.status(500).json({ success: false, message: "Error al eliminar la publicacion" });
   }
 });
 
 router.get("/publicacion", (req, res) => {
   res.render("publicacion");
-});
-
-router.get("/voluntarios", (req, res) => {
-  res.render("verVoluntario");
-});
-
-router.get("/comunicados", (req, res) => {
-  res.render("comunicados");
-});
-
-router.get("/home", (req, res) => {
-  res.render("home");
 });
 
 module.exports = router;

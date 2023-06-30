@@ -4,7 +4,6 @@ const router = Router();
 const publicacionCont = require("../controllers/publicacionController");
 const userCont = require("../controllers/userController");
 
-//routes
 router.get('/', (req, res) => {
   res.render(index)
 });

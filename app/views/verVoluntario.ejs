@@ -7,13 +7,12 @@
 </head>
 <body>
   <%- include('cabecera.ejs') %>
-
   <div class="App">
     <div class="titulo2">
       <label>VOLUNTARIOS</label>
     </div> 
    <br><br>
-    <div id="voluntariosContainer" class="=voluntariosContainer">
+    <div id="voluntariosContainer" class="voluntariosContainer">
       <div class="voluntariosContaine2">
         <table id="userTable" class="table table-striped table-hover ">
           <thead>
@@ -32,7 +31,9 @@
      
         <button type="button" class="btn btn-primary"onclick="recuperarUsuarios2()">MOSTRAR DATOS ACTUALIZADOS</button>
       <br><br>
-      <a href="/register" >Registrar un nuevo voluntario</a>
+      <div class="registrarUser">
+      <a href="/register" class="palabra">REGISTRAR NUEVO VOLUNTARIO</a>
+    </div>
     </div>
   </div> 
 </div>
