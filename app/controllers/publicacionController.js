@@ -1,23 +1,34 @@
-
 const express = require("express");
 const router = express.Router();
 const publicacionModel = require("../models/publicacionModel.js");
 
 router.post("/create", async (req, res) => {
-  const { nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios } = req.body;
-
-  try {
-    const result = await publicacionModel.crearPublicacion(nombrePublicacion, descripcion, tipoPublicacion, cantidadVoluntarios);
-    res.send("Publicación registrada con éxito");
-  } catch (err) {
-    console.error("Error al crear la publicación: ", err);
-    res.status(500).send("Error al crear la publicación");
-  }
+  const {
+    nombrePublicacion,
+    descripcion,
+    tipoPublicacion,
+    cantidadVoluntarios,
+  } = req.body;
+  console.log(req.body);
+    const result = await publicacionModel.crearPublicacion(
+      nombrePublicacion,
+      descripcion,
+      tipoPublicacion,
+      cantidadVoluntarios
+    ).then((data) => {
+      console.log(data);
+      res.send("Publicación registrada con éxito");
+    }).catch(err => {
+      console.log(err);
+      res.send("Error al registrar la publicación");
+    });
 });
 
 router.get("/eventos", async (req, res) => {
   try {
-    const eventos = await publicacionModel.obtenerPublicacionesPorTipo("evento");
+    const eventos = await publicacionModel.obtenerPublicacionesPorTipo(
+      "evento"
+    );
     res.render("eventos", { eventos });
   } catch (err) {
     console.error("Error al obtener las publicaciones de tipo 'evento':", err);

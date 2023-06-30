@@ -11,7 +11,7 @@ function publicar() {
     cantidadVoluntarios
   };
 
-  fetch("/publicacion/create", {
+  fetch("/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -20,7 +20,7 @@ function publicar() {
   })
     .then(response => response.text())
     .then(message => {
-      alert(message);
+      alert(message)
       window.location.href = "/publicacion";
     })
     .catch(error => {

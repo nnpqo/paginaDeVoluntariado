@@ -1,23 +1,23 @@
 function login() {
     const codigoVoluntario = document.getElementById("codigo").value;
-    
+    const password = document.getElementById("password").value;
   
     const formData = {
       codigoVoluntario
+
     };
   
-    fetch(`/getUsuarioPorCodigo/${codigoVoluntario}`, {
-      method: "GET",
+    fetch(`/login/getUsuarioPorCodigo/${codigoVoluntario}/${password}`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      //body: JSON.stringify(formData)
     })
-      .then(response => response.text())
+      .then(response => response.json())
       .then(message => {
-       // alert(message);
-        window.location.href = "/login/home";
-        // Realizar acciones adicionales después de iniciar sesión exitosamente
+        message.login?
+          window.location.href = "/home":
+          window.location.href = "/login";
       })
       .catch(error => {
         console.error("Error al iniciar sesión:", error);
