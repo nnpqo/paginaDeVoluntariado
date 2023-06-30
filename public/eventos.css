@@ -47,9 +47,11 @@ html, body {
   
 .eventosBox h3 {
     color: white;
+    display: flex;
 }
   
 .eventosBox p {
     color: white;
+    display: flex;
 }
   
