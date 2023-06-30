@@ -34,19 +34,19 @@ router.get("/", (req, res) => {
   res.render("eliminarUsuarioPorCodigo");
 });
 
-router.post("/eliminarUsuarioPorCodigo/:codigo", async (req, res) => {
+router.delete("/eliminarUsuarioPorCodigo/:codigo", async (req, res) => {
   const codigo = req.params.codigo;
 
   try {
     const usuario = await userModel.obtenerVoluntarioPorCodigo(codigo);
-
+    console.log(codigo);
     if (usuario) {
       // Usuario encontrado, procede a eliminarlo
       await userModel.eliminarVoluntarioPorCodigo(codigo);
-      res.json({ success: true, message: "Usuario eliminado correctamente" });
+    res.send("Usuario eliminado correctamente");
     } else {
       // Usuario no encontrado
-      res.json({ success: false, message: "El usuario no existe" });
+      res.send("El usuario no existe" );
     }
   } catch (err) {
     console.error("Error al eliminar el usuario: ", err);
